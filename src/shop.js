@@ -1,3 +1,5 @@
+'use strict'
+
 // If you have time, you can move this variable "products" to a json or js file and load the data in this js. It will look more professional
 var products = [
     {
@@ -74,25 +76,81 @@ var cart = [];
 
 var total = 0;
 
+
 // Exercise 1
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array
+
+    //busca el producte a l'array 
+    const productToBuy = products.find(product => product.id == id)
+
+    //errors
+    if (!productToBuy) {
+        alert(`Error`);
+        return;
+    }
+    
+    //si existeix el producte a la cart, li suma 1 a quantitat, 
+    // i si no existeix, el puja i li crea la propietat "quantity" per anar sumant
+    const exist = cart.find(product => product.id === id); 
+    if (exist) {
+        exist.quantity += 1;
+    } else {
+        productToBuy.quantity = 1;
+        cart.push(productToBuy);
+    }
+  
+    console.log(cart)
+    
 }
 
 // Exercise 2
 function cleanCart() {
+
+    cart.length = 0;
+    console.log(cart)
 
 }
 
 // Exercise 3
 function calculateTotal() {
     // Calculate total price of the cart using the "cartList" array
+
+
+    applyPromotionsCart();
+    let totalPrice = 0;
+
+    for (let i = 0; i < cart.length; i++) {
+        
+        //adaptació als productes amb descompte de l'exercici 4
+        if (cart[i].subtotalWithDiscount){
+            totalPrice += cart[i].subtotalWithDiscount
+        } else {
+            totalPrice += cart[i].quantity * cart[i].price
+        }
+    }
+
+    console.log(totalPrice)
+
 }
 
 // Exercise 4
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
+
+    //per modificar el descompte s'ha de modificar l'array de productes, no aquesta funció
+
+    for (let i = 0; i < cart.length; i++) {
+
+        if (cart[i].offer && cart[i].quantity >= cart[i].offer.number){
+            let discount = 1 - (cart[i].offer.percent / 100)
+            cart[i].subtotalWithDiscount = cart[i].quantity * cart[i].price * discount
+        }
+        
+    }
+
+
 }
 
 // Exercise 5
