@@ -109,7 +109,6 @@ function buy(id) {
 function cleanCart() {
 
     cart.length = 0;
-    console.log(cart)
 
     document.getElementById('cart_list').innerHTML = '';
 
@@ -167,8 +166,6 @@ function printCart() {
 
     cart.forEach(product => { //bucle for millor?????
         const row = document.createElement('tr');
-
-
 
         row.innerHTML = `
             <th scope="row">${product.name}</th>
