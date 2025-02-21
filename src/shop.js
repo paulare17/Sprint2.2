@@ -111,16 +111,21 @@ function cleanCart() {
     cart.length = 0;
     console.log(cart)
 
+    document.getElementById('cart_list').innerHTML = '';
+
+    document.getElementById('total_price').innerHTML = 0;
+
 }
 
 // Exercise 3
 function calculateTotal() {
     // Calculate total price of the cart using the "cartList" array
 
-
+    //crida a la funció de l'exercici 4
     applyPromotionsCart();
-    let totalPrice = 0;
 
+
+    let totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
         
         //adaptació als productes amb descompte de l'exercici 4
@@ -132,30 +137,54 @@ function calculateTotal() {
     }
 
     console.log(totalPrice)
-
+    return totalPrice
 }
 
 // Exercise 4
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
 
-    //per modificar el descompte s'ha de modificar l'array de productes, no aquesta funció
+    //per modificar el descompte s'ha de modificar l'array de productes, NO aquesta funció
 
     for (let i = 0; i < cart.length; i++) {
 
         if (cart[i].offer && cart[i].quantity >= cart[i].offer.number){
             let discount = 1 - (cart[i].offer.percent / 100)
             cart[i].subtotalWithDiscount = cart[i].quantity * cart[i].price * discount
-        }
-        
+        }        
     }
-
-
 }
 
 // Exercise 5
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
+
+    //tbody
+    const cartList = document.getElementById('cart_list');
+    cartList.innerHTML = ''; //buida la llista 
+
+    let totalPriceCart = calculateTotal()
+
+    cart.forEach(product => { //bucle for millor?????
+        const row = document.createElement('tr');
+
+
+
+        row.innerHTML = `
+            <th scope="row">${product.name}</th>
+            <td>$${product.price.toFixed(2)}</td>
+            <td>${product.quantity}</td>
+            <td>$${(product.subtotalWithDiscount || product.quantity * product.price).toFixed(2)}</td>
+        `;
+
+        //afegir la fila a la taula
+        cartList.appendChild(row);
+    });
+
+    //actualitzar preu final
+    document.getElementById('total_price').innerHTML = totalPriceCart;
+
+
 }
 
 
