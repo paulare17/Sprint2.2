@@ -124,7 +124,7 @@ function calculateTotal() {
     applyPromotionsCart();
 
 
-    let totalPrice = 0;
+    var totalPrice = 0;
     for (let i = 0; i < cart.length; i++) {
         
         //adaptació als productes amb descompte de l'exercici 4
@@ -189,7 +189,31 @@ function printCart() {
 
 // Exercise 7
 function removeFromCart(id) {
+    //dubte: on s'implementa aquesta funció?
 
+
+    const remove = cart.findIndex(product => product.id === id)
+
+    if (remove !== -1){
+
+        if (cart[remove].quantity > 1){
+            cart[remove].quantity--
+        } else {
+            cart.splice(remove, 1)
+        }
+    }
+    
+    //actualització de les promocions
+    cart.forEach(product => {
+        //si existeix un offer i una quantity menor al número q marca la oferta
+        if (product.offer && product.quantity < product.offer.number) {
+            //elimina el paràmetre subtotal (pel que no aplicarà la funció de les ofertes)
+            delete product.subtotalWithDiscount;
+        }
+    });
+
+    applyPromotionsCart() 
+    printCart();
 }
 
 function open_modal() {
