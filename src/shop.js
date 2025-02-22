@@ -4,7 +4,7 @@
 var products = [
     {
         id: 1,
-        name: 'cooking oil',
+        name: 'Cooking Oil',
         price: 10.5,
         type: 'grocery',
         offer: {
@@ -100,8 +100,6 @@ function buy(id) {
         productToBuy.quantity = 1;
         cart.push(productToBuy);
     }
-  
-    console.log(cart)
     
 }
 
@@ -134,8 +132,6 @@ function calculateTotal() {
             totalPrice += cart[i].quantity * cart[i].price
         }
     }
-
-    console.log(totalPrice)
     return totalPrice
 }
 
@@ -167,11 +163,16 @@ function printCart() {
     cart.forEach(product => { //bucle for millor?????
         const row = document.createElement('tr');
 
+        //per fer que el toFixed funcione 
+        const subtotal = (typeof product.subtotalWithDiscount === 'number' && !isNaN(product.subtotalWithDiscount))
+            ? product.subtotalWithDiscount
+            : (product.quantity * product.price);
+
         row.innerHTML = `
             <th scope="row">${product.name}</th>
             <td>$${product.price.toFixed(2)}</td>
             <td>${product.quantity}</td>
-            <td>$${(product.subtotalWithDiscount || product.quantity * product.price).toFixed(2)}</td>
+            <td>$${subtotal.toFixed(2)}</td>
         `;
 
         //afegir la fila a la taula

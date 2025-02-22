@@ -16,12 +16,20 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
+		<link rel="stylesheet" href="/css/styles.css">
+		<!-- Exercici 8-->
+		<link rel="stylesheet" href="/css/stylescustom.css">
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="50">
 	<!-- Navigation-->
-	<nav class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg" id="navbar-example2">
+	<nav class="navbar py-3 py-lg-0 navbar-light bg-light navbar-expand-lg sticky-top bg-opacity-75" id="navbar-example2">
 		<div class="container d-flex">
+			<a class="navbar-brand" href="#">
+				<img src="/images/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="Logo icon">
+			</a>
 			<a class="navbar-brand" href="#">ShopNow</a>
 			<div class="d-flex flex-row order-lg-last align-items-center">
 
@@ -58,26 +66,30 @@
 			</div>
 		</div>
 	</nav>
-
+	<div class="promo-bar">
+		<marquee behavior="scroll" direction="left">
+			🔥 Special offer! 🚨  | Get 3 cooking oils with 20% OFF ! 🚀 | 🎂  Buy 10 instant cup mixtures and enjoy 30% off 🧁  | 🗣 Get up to 50% off Today Only! 📆
+		</marquee>
+	</div>
 	<!-- Header-->
-	<header class="bg-dark py-5">
+	<header class="py-5" >
 		<div class="container px-4 px-lg-5 my-5">
-			<div class="text-center text-white">
+			<div class="text-center text-dark">
 				<h1 class="display-4 fw-bolder">IT Academy Shop</h1>
-				<p class="lead fw-normal text-white-50 mb-0">Get up to 50% off Today Only!</p>
+				
 			</div>
 		</div>
 	</header>
 	
 	<!-- Section-->
-	 <button onclick="removeFromCart(1)">auxiliar</button>
 	<section class="pt-5" id="grocery">
-		<h2 class="text-center"><i class="fas fa-shopping-basket pe-3"></i>Grocery</h2>
+		<h2 class="text-center text-dark"><i class="fas fa-shopping-basket pe-3"></i>Grocery
+		</h2>
 		<div class="container px-4 px-lg-5 mt-5">
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
-					<div class="card h-100">
-						<img class="card-img-top" src="./images/product.svg" alt="..." />
+					<div class="card h-100 shadow-lg rounded-3 border-0">
+							<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
 								<h5 class="fw-bolder">Cooking Oil</h5>
@@ -91,7 +103,7 @@
 					</div>
 				</div>
 				<div class="col mb-5">
-					<div class="card h-100">
+					<div class="card h-100 shadow-lg rounded-3 border-0">
 						<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -106,7 +118,7 @@
 					</div>
 				</div>
 				<div class="col mb-5">
-					<div class="card h-100">
+					<div class="card h-100 shadow-lg rounded-3 border-0" >
 						<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -125,11 +137,11 @@
 		</div>
 	</section>
 	<section class="pt-5" id="beauty">
-		<h2 class="text-center"><i class="fas fa-heart pe-3"></i>Beauty</h2>
+		<h2 class="text-center text-dark"><i class="fas fa-heart pe-3"></i>Beauty</h2>
 		<div class="container px-4 px-lg-5 mt-5">
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
-					<div class="card h-100">
+					<div class="card h-100 shadow-lg rounded-3 border-0">
 						<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -138,13 +150,14 @@
 							</div>
 						</div>
 						<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-							<div class="text-center"><button type="button" onclick="buy(4)"
+							<div class="text-center">
+								<button type="button" onclick="buy(4)"
 									class="btn btn-outline-dark">Add to cart</button></div>
 						</div>
 					</div>
 				</div>
 				<div class="col mb-5">
-					<div class="card h-100">
+					<div class="card h-100 shadow-lg rounded-3 border-0">
 						<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -159,7 +172,7 @@
 					</div>
 				</div>
 				<div class="col mb-5">
-					<div class="card h-100">
+					<div class="card h-100 shadow-lg rounded-3 border-0">
 						<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -178,11 +191,11 @@
 		</div>
 	</section>
 	<section class="pt-5" id="clothes">
-		<h2 class="text-center"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
+		<h2 class="text-center text-dark"><i class="fas fa-tshirt pe-3"></i>Clothes</h2>
 		<div class="container px-4 px-lg-5 mt-5">
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 				<div class="col mb-5">
-					<div class="card h-100">
+					<div class="card h-100 shadow-lg rounded-3 border-0">
 						<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -197,7 +210,7 @@
 					</div>
 				</div>
 				<div class="col mb-5">
-					<div class="card h-100">
+					<div class="card h-100 shadow-lg rounded-3 border-0">
 						<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -212,7 +225,7 @@
 					</div>
 				</div>
 				<div class="col mb-5">
-					<div class="card h-100">
+					<div class="card h-100 shadow-lg rounded-3 border-0">
 						<img class="card-img-top" src="./images/product.svg" alt="..." />
 						<div class="card-body p-4">
 							<div class="text-center">
@@ -234,7 +247,7 @@
 	<!-- Footer-->
 	<footer class="py-3 bg-dark">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p>
+			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2025</p>
 		</div>
 	</footer>
 
@@ -242,14 +255,14 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-cart-arrow-down"></i> My Cart</h5>
+					<h5 class="modal-title text-dark" id="exampleModalLabel"><i class="fas fa-cart-arrow-down"></i> My Cart</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<h3 class="text-center bill px-5">Shopping Cart</h3>
-					<table class="table">
+					<h3 class="text-center bill px-5 text-dark">Shopping Cart</h3>
+					<table class="table ">
 						<thead>
-							<tr>
+							<tr >
 								<th scope="col">Product</th>
 								<th scope="col">Price</th>
 								<th scope="col">Qty.</th>
@@ -260,12 +273,12 @@
 							
 						</tbody>
 					</table>
-					<div class="text-center fs-3">
+					<div class="text-center text-dark fs-3">
 						Total: $<span id="total_price"></span>
 					</div>
 					<div class="text-center">
-						<a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
-						<a href="javascript:void(0)" onclick="cleanCart()" class="btn btn-primary m-3">Clean Cart</a>
+						<a href="checkout.html" class="btn btn-outline-dark m-3">Checkout</a>
+						<a href="javascript:void(0)" onclick="cleanCart()" class="btn btn-outline-dark m-3">Clean Cart</a>
 					</div>
 				</div>
 			</div>

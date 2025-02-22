@@ -1,0 +1,22 @@
+/* Exercici 8 */
+
+body {
+    background-image: url('../images/moroccan-flower.png'); /* Textura */
+  }
+
+h1 {
+    font-size: 5rem !important;
+    font-weight: 700;
+}
+
+.promo-bar {
+    width: 100%;
+    background-color: #ffcc00;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espai entre la promo i la següent secció */
+}
